@@ -2,14 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bannière Cookies</title>
+  <title>Bannière Cookies Simplifiée</title>
   <style>
     #cookie-banner {
       position: fixed;
       bottom: 0; left: 0; right: 0;
-      background: #222;
-      color: #fff;
+      background-color: #222;
+      color: white;
       padding: 15px 20px;
       font-family: Arial, sans-serif;
       font-size: 14px;
@@ -17,7 +16,7 @@
       z-index: 9999;
     }
     #cookie-banner button {
-      background: #4caf50;
+      background-color: #4caf50;
       border: none;
       color: white;
       padding: 8px 15px;
@@ -26,35 +25,12 @@
       cursor: pointer;
       font-weight: bold;
     }
-    #cookie-banner a {
-      color: #90caf9;
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
   <div id="cookie-banner">
     Ce site utilise des cookies pour améliorer votre expérience.
-    <a href="/politique-de-confidentialite" target="_blank" rel="noopener">En savoir plus</a>
-    <button id="accept-cookies">J'accepte</button>
+    <button onclick="document.getElementById('cookie-banner').style.display='none'">J’accepte</button>
   </div>
-
-  <script>
-    (function() {
-      var banner = document.getElementById('cookie-banner');
-      var button = document.getElementById('accept-cookies');
-
-      if (document.cookie.indexOf('cookies_accepted=true') !== -1) {
-        banner.style.display = 'none';
-      }
-
-      button.addEventListener('click', function() {
-        var expiry = new Date();
-        expiry.setFullYear(expiry.getFullYear() + 1);
-        document.cookie = 'cookies_accepted=true; expires=' + expiry.toUTCString() + '; path=/';
-        banner.style.display = 'none';
-      });
-    })();
-  </script>
 </body>
 </html>
